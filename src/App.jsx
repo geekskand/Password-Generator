@@ -7,6 +7,7 @@ function App() {
   const [numAllowed, setNumAllowed] = useState(false)
   const [spCharAllowed, setSpCharAllowed] = useState(false)
   const [password, setPassword] = useState("")
+  const audio = new Audio("/sound.mp3");
 
   const passwordGenerator = useCallback(() => {
     let password = "";
@@ -33,7 +34,7 @@ function App() {
     passwordRef.current.select();
     setTimeout(() => {alert("Copied to clipboard");
     }, 500);
-    const audio = new Audio("/sound.mp3");
+
     audio.play();
     navigator.clipboard.writeText(password);
   }, [password]);
